@@ -36,9 +36,15 @@ function Navbar() {
     >
       <div className="max-w-7xl mx-auto px-6 py-4">
         <div className="flex items-center justify-between">
-          <div className="flex items-center gap-2">
-            <Building2 className="w-8 h-8 text-luxury-gold" />
-            <span className="font-serif text-xl font-semibold text-white">
+          <div className="flex items-center gap-3">
+            <div className="relative">
+              <img 
+                src="/images/new_logo_bahari_investment.jpeg" 
+                alt="Bahari Investment Logo"
+                className="h-12 md:h-16 w-auto object-contain rounded-sm border border-luxury-gold/30 shadow-lg shadow-luxury-gold/10"
+              />
+            </div>
+            <span className="hidden md:block font-serif text-xl font-semibold text-white">
               Bahari Investment
             </span>
           </div>
@@ -87,28 +93,41 @@ function HeroSection() {
     <section id="home" className="relative h-screen flex items-center justify-center overflow-hidden">
       {/* Background Image with Overlay */}
       <div 
-        className="absolute inset-0 bg-cover bg-center"
+        className="absolute inset-0 bg-cover bg-center backdrop-brightness-50"
         style={{
           backgroundImage: 'url(https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=2070&auto=format&fit=crop)',
         }}
       >
-        <div className="absolute inset-0 bg-gradient-to-b from-luxury-dark/70 via-luxury-dark/50 to-luxury-dark"></div>
+        {/* Gradient Overlay: Black at bottom to transparent at top */}
+        <div className="absolute inset-0 bg-gradient-to-b from-black via-black/50 to-transparent"></div>
       </div>
 
       {/* Content */}
       <div className="relative z-10 text-center px-6 max-w-5xl mx-auto">
-        <h1 className="font-serif text-5xl md:text-7xl lg:text-8xl font-bold text-white mb-6 leading-tight">
-          Anugrah Bahari Tower
-          <span className="block text-luxury-gold mt-2">The New Icon of Tegal Luxury</span>
-        </h1>
-        <p className="text-xl md:text-2xl text-luxury-off-white/90 mb-8 font-light max-w-3xl mx-auto">
-          Exclusive Investment Opportunity in the Heart of the City
+        {/* Over-title */}
+        <p className="text-luxury-gold uppercase tracking-widest text-sm md:text-base mb-4 font-medium">
+          Now Accepting International Investors
         </p>
+        
+        {/* Main Title with Gold Vertical Accent */}
+        <div className="flex items-center justify-center gap-6 mb-6">
+          <div className="hidden md:block w-1 h-24 bg-[#B89146]"></div>
+          <h1 className="font-serif text-5xl md:text-6xl lg:text-7xl font-bold text-white leading-tight">
+            Premium Investment Opportunities in Indonesia
+          </h1>
+        </div>
+        
+        {/* Sub-title */}
+        <p className="text-xl md:text-2xl text-luxury-off-white/80 mb-10 font-light max-w-3xl mx-auto">
+          Secure, Profitable, and Transparent real estate investments in Southeast Asia's fastest-growing economy.
+        </p>
+        
+        {/* Buttons */}
         <div className="flex flex-col sm:flex-row gap-4 justify-center">
-          <button className="bg-luxury-gold text-luxury-dark px-8 py-4 rounded-sm font-semibold text-lg hover:bg-luxury-gold/90 transition-all transform hover:scale-105">
-            Explore Project
+          <button className="border border-[#B89146] text-[#B89146] px-10 py-4 rounded-none font-medium text-lg hover:bg-[#B89146] hover:text-white transition-all duration-300">
+            Explore Projects
           </button>
-          <button className="border-2 border-luxury-gold text-luxury-gold px-8 py-4 rounded-sm font-semibold text-lg hover:bg-luxury-gold/10 transition-all">
+          <button className="border border-luxury-gold text-luxury-gold px-10 py-4 rounded-none font-medium text-lg hover:bg-luxury-gold hover:text-luxury-dark transition-all duration-300">
             Schedule Consultation
           </button>
         </div>
