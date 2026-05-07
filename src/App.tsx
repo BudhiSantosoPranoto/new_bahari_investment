@@ -70,6 +70,15 @@ function Navbar() {
             </div>
           </div>
         )}
+
+        {/* LOGO DI BAWAH MENU (CENTER) */}
+        <div className="hidden md:flex justify-center mt-6">
+          <img 
+            src="/images/new_logo_bahari_investment.jpeg" 
+            alt="Bahari Investment Logo" 
+            className="h-40 w-auto object-contain"
+          />
+        </div>
       </div>
     </nav>
   )
