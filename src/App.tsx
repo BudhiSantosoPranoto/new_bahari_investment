@@ -44,12 +44,12 @@ function Navbar() {
 
           {/* Navigation Menu - Right */}
           <div className="flex items-center gap-8">
-            <a href="#home" className="text-luxury-off-white hover:text-luxury-gold transition-colors font-medium">Home</a>
-            <a href="#portfolio" className="text-luxury-off-white hover:text-luxury-gold transition-colors font-medium">Portfolio</a>
-            <a href="#opportunities" className="text-luxury-gold font-bold transition-colors">Investment Opportunities</a>
-            <a href="#about" className="text-luxury-off-white hover:text-luxury-gold transition-colors font-medium">About</a>
-            <a href="#contact" className="text-luxury-off-white hover:text-luxury-gold transition-colors font-medium">Contact</a>
-            <button className="bg-luxury-gold text-luxury-dark px-6 py-2 rounded-sm font-semibold hover:bg-luxury-gold/90 transition-colors shadow-lg shadow-luxury-gold/20">
+            <a href="#home" className="text-luxury-off-white font-medium">Home</a>
+            <a href="#portfolio" className="text-luxury-off-white font-medium">Portfolio</a>
+            <a href="#opportunities" className="text-luxury-gold font-bold">Investment Opportunities</a>
+            <a href="#about" className="text-luxury-off-white font-medium">About</a>
+            <a href="#contact" className="text-luxury-off-white font-medium">Contact</a>
+            <button className="bg-luxury-gold text-luxury-dark px-6 py-2 rounded-sm font-semibold shadow-lg shadow-luxury-gold/20">
               Invest Now
             </button>
           </div>
