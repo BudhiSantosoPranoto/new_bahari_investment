@@ -35,22 +35,15 @@ function Navbar() {
       }`}
     >
       <div className="max-w-7xl mx-auto px-6 py-4">
-        {/* Desktop Navigation - Logo Centered */}
-        <div className="hidden md:flex flex-col items-center gap-4">
-          {/* Logo - Centered with smaller size and Gold Glow */}
-          <div className="flex flex-col items-center gap-2">
-            <img 
-              src="/images/new_logo_bahari_investment.jpeg" 
-              alt="Bahari Investment Logo"
-              className="h-16 w-auto object-contain drop-shadow-[0_0_8px_rgba(184,145,70,0.5)]"
-            />
-            <span className="font-serif text-lg font-bold text-[#B89146]">
-              Bahari Investment
-            </span>
-          </div>
+        {/* Desktop Navigation */}
+        <div className="hidden md:flex items-center justify-between">
+          {/* Branding Text - Left */}
+          <span className="font-serif text-2xl font-bold text-[#B89146]">
+            Bahari Investment
+          </span>
 
-          {/* Navigation Menu - Below Logo */}
-          <div className="flex items-center gap-8 mt-2">
+          {/* Navigation Menu - Right */}
+          <div className="flex items-center gap-8">
             <a href="#home" className="text-luxury-off-white hover:text-luxury-gold transition-colors font-medium">Home</a>
             <a href="#portfolio" className="text-luxury-off-white hover:text-luxury-gold transition-colors font-medium">Portfolio</a>
             <a href="#opportunities" className="text-luxury-gold font-bold transition-colors">Investment Opportunities</a>
@@ -62,18 +55,11 @@ function Navbar() {
           </div>
         </div>
 
-        {/* Mobile Navigation - Logo Left, Menu Button Right */}
+        {/* Mobile Navigation */}
         <div className="md:hidden flex items-center justify-between">
-          <div className="flex items-center gap-2">
-            <img 
-              src="/images/new_logo_bahari_investment.jpeg" 
-              alt="Bahari Investment Logo"
-              className="h-10 w-auto object-contain drop-shadow-[0_0_8px_rgba(184,145,70,0.5)]"
-            />
-            <span className="font-serif text-base font-bold text-[#B89146]">
-              Bahari Investment
-            </span>
-          </div>
+          <span className="font-serif text-xl font-bold text-[#B89146]">
+            Bahari Investment
+          </span>
 
           {/* Mobile Menu Button */}
           <button 
