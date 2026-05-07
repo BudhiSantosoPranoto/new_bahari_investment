@@ -39,7 +39,7 @@ function Navbar() {
         <div className="hidden md:flex flex-col items-center relative">
           
           {/* Top Row: Branding (Left) + Menu (Right) */}
-          <div className="flex items-center justify-between w-full">
+          <div className="flex items-center justify-between w-full mb-4">
             {/* Branding Text - Top Left Only */}
             <div>
               <span className="font-serif text-2xl font-bold text-[#B89146]">
@@ -49,19 +49,19 @@ function Navbar() {
 
             {/* Navigation Menu - Right Side */}
             <div className="flex items-center gap-8">
-              <a href="#home" className="text-luxury-off-white hover:text-[#B89146] transition-colors font-medium">Home</a>
-              <a href="#portfolio" className="text-luxury-off-white hover:text-[#B89146] transition-colors font-medium">Portfolio</a>
-              <a href="#opportunities" className="text-[#B89146] font-bold transition-colors">Investment Opportunities</a>
-              <a href="#about" className="text-luxury-off-white hover:text-[#B89146] transition-colors font-medium">About</a>
-              <a href="#contact" className="text-luxury-off-white hover:text-[#B89146] transition-colors font-medium">Contact</a>
-              <button className="bg-[#B89146] text-luxury-dark px-6 py-2 rounded-sm font-semibold hover:bg-[#B89146]/90 transition-colors shadow-lg shadow-[#B89146]/20">
+              <a href="#home" className="text-luxury-off-white hover:text-luxury-gold transition-colors font-medium">Home</a>
+              <a href="#portfolio" className="text-luxury-off-white hover:text-luxury-gold transition-colors font-medium">Portfolio</a>
+              <a href="#opportunities" className="text-luxury-gold font-bold transition-colors">Investment Opportunities</a>
+              <a href="#about" className="text-luxury-off-white hover:text-luxury-gold transition-colors font-medium">About</a>
+              <a href="#contact" className="text-luxury-off-white hover:text-luxury-gold transition-colors font-medium">Contact</a>
+              <button className="bg-luxury-gold text-luxury-dark px-6 py-2 rounded-sm font-semibold hover:bg-luxury-gold/90 transition-colors shadow-lg shadow-luxury-gold/20">
                 Invest Now
               </button>
             </div>
           </div>
 
-          {/* Bottom Row: Large Centered Logo - Completely Separate from Menu */}
-          <div className="flex justify-center pt-6 pb-2">
+          {/* Bottom Row: Large Centered Logo */}
+          <div className="flex flex-col items-center py-4">
             <img 
               src="/images/new_logo_bahari_investment.jpeg" 
               alt="Bahari Investment Logo"
