@@ -49,12 +49,12 @@ function Navbar() {
 
             {/* Navigation Menu - Right Side */}
             <div className="flex items-center gap-8">
-              <a href="#home" className="text-luxury-off-white hover:text-[#B89146] transition-colors font-medium">Home</a>
-              <a href="#portfolio" className="text-luxury-off-white hover:text-[#B89146] transition-colors font-medium">Portfolio</a>
-              <a href="#opportunities" className="text-[#B89146] font-bold transition-colors">Investment Opportunities</a>
-              <a href="#about" className="text-luxury-off-white hover:text-[#B89146] transition-colors font-medium">About</a>
-              <a href="#contact" className="text-luxury-off-white hover:text-[#B89146] transition-colors font-medium">Contact</a>
-              <button className="bg-[#B89146] text-luxury-dark px-6 py-2 rounded-sm font-semibold hover:bg-[#B89146]/90 transition-colors shadow-lg shadow-[#B89146]/20">
+              <a href="#home" className="text-luxury-off-white hover:text-[#B89146] transition-all duration-300 ease-in-out font-medium">Home</a>
+              <a href="#portfolio" className="text-luxury-off-white hover:text-[#B89146] transition-all duration-300 ease-in-out font-medium">Portfolio</a>
+              <a href="#opportunities" className="text-[#B89146] font-bold transition-all duration-300 ease-in-out transform hover:scale-105">Investment Opportunities</a>
+              <a href="#about" className="text-luxury-off-white hover:text-[#B89146] transition-all duration-300 ease-in-out font-medium">About</a>
+              <a href="#contact" className="text-luxury-off-white hover:text-[#B89146] transition-all duration-300 ease-in-out font-medium">Contact</a>
+              <button className="bg-[#B89146] text-luxury-dark px-6 py-2 rounded-sm font-semibold hover:bg-[#D4A756] transition-all duration-300 ease-in-out shadow-lg shadow-[#B89146]/20 hover:shadow-[#B89146]/40">
                 Invest Now
               </button>
             </div>
