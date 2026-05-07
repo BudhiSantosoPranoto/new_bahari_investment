@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react'
+import { useState } from 'react'
 import { Menu, X, Building2, MapPin, TrendingUp, CheckCircle2, Clock } from 'lucide-react'
 
 // Google Sheets API configuration
@@ -15,26 +15,11 @@ interface Project {
 }
 
 function Navbar() {
-  const [isScrolled, setIsScrolled] = useState(false)
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
 
-  useEffect(() => {
-    const handleScroll = () => {
-      setIsScrolled(window.scrollY > 50)
-    }
-    window.addEventListener('scroll', handleScroll)
-    return () => window.removeEventListener('scroll', handleScroll)
-  }, [])
-
   return (
-    <nav 
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
-        isScrolled 
-          ? 'bg-luxury-dark/80 backdrop-blur-md border-b border-luxury-gold/20' 
-          : 'bg-transparent'
-      }`}
-    >
-      <div className="max-w-7xl mx-auto px-6 py-4">
+    <nav className="relative w-full bg-[#121212] border-b border-luxury-gold/20 py-6">
+      <div className="max-w-7xl mx-auto px-6">
         {/* Desktop Navigation */}
         <div className="hidden md:flex items-center justify-between">
           {/* Branding Text - Left */}
@@ -44,12 +29,12 @@ function Navbar() {
 
           {/* Navigation Menu - Right */}
           <div className="flex items-center gap-8">
-            <a href="#home" className="text-luxury-off-white font-medium">Home</a>
-            <a href="#portfolio" className="text-luxury-off-white font-medium">Portfolio</a>
-            <a href="#opportunities" className="text-luxury-gold font-bold">Investment Opportunities</a>
-            <a href="#about" className="text-luxury-off-white font-medium">About</a>
-            <a href="#contact" className="text-luxury-off-white font-medium">Contact</a>
-            <button className="bg-luxury-gold text-luxury-dark px-6 py-2 rounded-sm font-semibold shadow-lg shadow-luxury-gold/20">
+            <a href="#home" className="text-luxury-off-white font-medium hover:text-[#B89146]">Home</a>
+            <a href="#portfolio" className="text-luxury-off-white font-medium hover:text-[#B89146]">Portfolio</a>
+            <a href="#opportunities" className="text-luxury-gold font-bold hover:text-[#B89146]">Investment Opportunities</a>
+            <a href="#about" className="text-luxury-off-white font-medium hover:text-[#B89146]">About</a>
+            <a href="#contact" className="text-luxury-off-white font-medium hover:text-[#B89146]">Contact</a>
+            <button className="bg-luxury-gold text-luxury-dark px-6 py-2 rounded-sm font-semibold shadow-lg shadow-luxury-gold/20 hover:bg-white transition-colors">
               Invest Now
             </button>
           </div>
@@ -74,11 +59,11 @@ function Navbar() {
         {isMobileMenuOpen && (
           <div className="md:hidden mt-4 pb-4 border-t border-luxury-gold/20 pt-4">
             <div className="flex flex-col gap-4">
-              <a href="#home" className="text-luxury-off-white hover:text-luxury-gold transition-colors font-medium">Home</a>
-              <a href="#portfolio" className="text-luxury-off-white hover:text-luxury-gold transition-colors font-medium">Portfolio</a>
-              <a href="#opportunities" className="text-luxury-gold font-bold transition-colors">Investment Opportunities</a>
-              <a href="#about" className="text-luxury-off-white hover:text-luxury-gold transition-colors font-medium">About</a>
-              <a href="#contact" className="text-luxury-off-white hover:text-luxury-gold transition-colors font-medium">Contact</a>
+              <a href="#home" className="text-luxury-off-white hover:text-[#B89146] font-medium">Home</a>
+              <a href="#portfolio" className="text-luxury-off-white hover:text-[#B89146] font-medium">Portfolio</a>
+              <a href="#opportunities" className="text-luxury-gold font-bold">Investment Opportunities</a>
+              <a href="#about" className="text-luxury-off-white hover:text-[#B89146] font-medium">About</a>
+              <a href="#contact" className="text-luxury-off-white hover:text-[#B89146] font-medium">Contact</a>
               <button className="bg-luxury-gold text-luxury-dark px-6 py-2 rounded-sm font-semibold w-fit">
                 Invest Now
               </button>
