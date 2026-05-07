@@ -71,13 +71,6 @@ function Navbar() {
           </div>
         )}
 
-        {/* LOGO DI BAWAH MENU (CENTER) */}
-        <div className="hidden md:flex justify-center mt-6">
-          <img 
-            src="/images/new_logo_bahari_investment.jpeg" 
-            alt="Bahari Investment Logo" 
-            className="h-40 w-auto object-contain"
-          />
         </div>
       </div>
     </nav>
@@ -100,6 +93,15 @@ function HeroSection() {
 
       {/* Content */}
       <div className="relative z-10 text-center px-6 max-w-5xl mx-auto">
+        {/* LOGO - TEPAT DI ATAS OVER-TITLE */}
+        <div className="flex justify-center mb-6">
+          <img 
+            src="/images/new_logo_bahari_investment.jpeg" 
+            alt="Bahari Investment Logo" 
+            className="h-32 w-auto object-contain"
+          />
+        </div>
+
         {/* Over-title */}
         <p className="text-luxury-gold uppercase tracking-widest text-sm md:text-base mb-4 font-medium">
           Now Accepting International Investors
