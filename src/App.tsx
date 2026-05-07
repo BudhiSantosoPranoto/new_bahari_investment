@@ -214,10 +214,17 @@ export default function App() {
       {/* LOGO MODAL OVERLAY - Melayang di awal, 4x lebih besar */}
       {showLogoModal && (
         <div 
-          className="fixed inset-0 z-[9999] flex items-center justify-center bg-black/95 backdrop-blur-md"
+          className="fixed inset-0 z-[9999] flex items-center justify-center backdrop-blur-md"
           onClick={handleModalClick}
         >
-          <div className="text-center p-8 animate-fade-in">
+          <div className="relative text-center p-8 animate-fade-in">
+            {/* Tombol Silang (X) di pojok kanan atas */}
+            <button 
+              onClick={(e) => { e.stopPropagation(); setShowLogoModal(false); }}
+              className="absolute top-0 right-0 text-[#B89146] hover:text-white text-4xl font-bold transition-colors z-[10000]"
+            >
+              ×
+            </button>
             <img 
               src="/images/new_logo_bahari_investment.jpeg" 
               alt="Bahari Investment" 
