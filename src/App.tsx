@@ -36,26 +36,23 @@ function Navbar() {
     >
       <div className="max-w-7xl mx-auto px-6 py-4">
         <div className="flex items-center justify-between">
+          {/* Logo - Left aligned, smaller size with Gold Glow */}
           <div className="flex items-center gap-3">
-            <div className="relative">
-              <img 
-                src="/images/new_logo_bahari_investment.jpeg" 
-                alt="Bahari Investment Logo"
-                className="h-12 md:h-16 w-auto object-contain rounded-sm border border-luxury-gold/30 shadow-lg shadow-luxury-gold/10"
-              />
-            </div>
-            <span className="hidden md:block font-serif text-xl font-semibold text-white">
-              Bahari Investment
-            </span>
+            <img 
+              src="/images/new_logo_bahari_investment.jpeg" 
+              alt="Bahari Investment Logo"
+              className="h-10 md:h-12 w-auto object-contain drop-shadow-[0_0_8px_rgba(184,145,70,0.5)]"
+            />
           </div>
 
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center gap-8">
-            <a href="#home" className="text-luxury-off-white hover:text-luxury-gold transition-colors">Home</a>
-            <a href="#projects" className="text-luxury-off-white hover:text-luxury-gold transition-colors">Projects</a>
-            <a href="#about" className="text-luxury-off-white hover:text-luxury-gold transition-colors">About</a>
-            <a href="#contact" className="text-luxury-off-white hover:text-luxury-gold transition-colors">Contact</a>
-            <button className="bg-luxury-gold text-luxury-dark px-6 py-2 rounded-sm font-medium hover:bg-luxury-gold/90 transition-colors">
+            <a href="#home" className="text-luxury-off-white hover:text-luxury-gold transition-colors font-medium">Home</a>
+            <a href="#portfolio" className="text-luxury-off-white hover:text-luxury-gold transition-colors font-medium">Portfolio</a>
+            <a href="#opportunities" className="text-luxury-gold font-bold transition-colors">Investment Opportunities</a>
+            <a href="#about" className="text-luxury-off-white hover:text-luxury-gold transition-colors font-medium">About</a>
+            <a href="#contact" className="text-luxury-off-white hover:text-luxury-gold transition-colors font-medium">Contact</a>
+            <button className="bg-luxury-gold text-luxury-dark px-6 py-2 rounded-sm font-semibold hover:bg-luxury-gold/90 transition-colors shadow-lg shadow-luxury-gold/20">
               Invest Now
             </button>
           </div>
@@ -73,11 +70,12 @@ function Navbar() {
         {isMobileMenuOpen && (
           <div className="md:hidden mt-4 pb-4 border-t border-luxury-gold/20 pt-4">
             <div className="flex flex-col gap-4">
-              <a href="#home" className="text-luxury-off-white hover:text-luxury-gold transition-colors">Home</a>
-              <a href="#projects" className="text-luxury-off-white hover:text-luxury-gold transition-colors">Projects</a>
-              <a href="#about" className="text-luxury-off-white hover:text-luxury-gold transition-colors">About</a>
-              <a href="#contact" className="text-luxury-off-white hover:text-luxury-gold transition-colors">Contact</a>
-              <button className="bg-luxury-gold text-luxury-dark px-6 py-2 rounded-sm font-medium w-fit">
+              <a href="#home" className="text-luxury-off-white hover:text-luxury-gold transition-colors font-medium">Home</a>
+              <a href="#portfolio" className="text-luxury-off-white hover:text-luxury-gold transition-colors font-medium">Portfolio</a>
+              <a href="#opportunities" className="text-luxury-gold font-bold transition-colors">Investment Opportunities</a>
+              <a href="#about" className="text-luxury-off-white hover:text-luxury-gold transition-colors font-medium">About</a>
+              <a href="#contact" className="text-luxury-off-white hover:text-luxury-gold transition-colors font-medium">Contact</a>
+              <button className="bg-luxury-gold text-luxury-dark px-6 py-2 rounded-sm font-semibold w-fit">
                 Invest Now
               </button>
             </div>
@@ -125,18 +123,11 @@ function HeroSection() {
         {/* Buttons */}
         <div className="flex flex-col sm:flex-row gap-4 justify-center">
           <button className="border border-[#B89146] text-[#B89146] px-10 py-4 rounded-none font-medium text-lg hover:bg-[#B89146] hover:text-white transition-all duration-300">
-            Explore Projects
+            Explore Opportunities
           </button>
           <button className="border border-luxury-gold text-luxury-gold px-10 py-4 rounded-none font-medium text-lg hover:bg-luxury-gold hover:text-luxury-dark transition-all duration-300">
             Schedule Consultation
           </button>
-        </div>
-      </div>
-
-      {/* Scroll Indicator */}
-      <div className="absolute bottom-10 left-1/2 -translate-x-1/2 animate-bounce">
-        <div className="w-6 h-10 border-2 border-luxury-gold rounded-full flex justify-center pt-2">
-          <div className="w-1 h-3 bg-luxury-gold rounded-full"></div>
         </div>
       </div>
     </section>
@@ -225,12 +216,17 @@ function ProjectsSection() {
     })
   }, [])
 
+  // Hide section if no data available
+  if (!loading && projects.length === 0) {
+    return null
+  }
+
   return (
-    <section id="projects" className="py-24 bg-luxury-dark">
+    <section id="opportunities" className="py-24 bg-luxury-dark">
       <div className="max-w-7xl mx-auto px-6">
         <div className="text-center mb-16">
           <h2 className="font-serif text-4xl md:text-5xl font-bold text-white mb-4">
-            Our Exclusive Projects
+            Our Investment Opportunities
           </h2>
           <p className="text-luxury-off-white/70 text-lg max-w-2xl mx-auto">
             Discover premium investment opportunities in Tegal's most prestigious developments
@@ -247,16 +243,19 @@ function ProjectsSection() {
               </div>
             ))}
           </div>
-        ) : projects.length > 0 ? (
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {projects.map((project) => (
-              <ProjectCard key={project.id} project={project} />
-            ))}
-          </div>
         ) : (
-          <div className="text-center py-12">
-            <p className="text-luxury-off-white/70">No projects available at the moment.</p>
-          </div>
+          <>
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+              {projects.map((project) => (
+                <ProjectCard key={project.id} project={project} />
+              ))}
+            </div>
+            <div className="text-center mt-12">
+              <button className="border border-luxury-gold text-luxury-gold px-8 py-3 rounded-none font-medium hover:bg-luxury-gold hover:text-luxury-dark transition-all duration-300">
+                View All Projects
+              </button>
+            </div>
+          </>
         )}
       </div>
     </section>
