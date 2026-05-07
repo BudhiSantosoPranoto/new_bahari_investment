@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { Menu, X, Building2, MapPin, TrendingUp, CheckCircle2, Clock } from 'lucide-react'
 
 // Google Sheets API configuration
