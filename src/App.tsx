@@ -35,31 +35,39 @@ function Navbar() {
       }`}
     >
       <div className="max-w-7xl mx-auto px-6 py-4">
-        {/* Desktop Navigation - Logo Centered */}
-        <div className="hidden md:flex flex-col items-center gap-4">
-          {/* Logo - Centered with smaller size and Gold Glow */}
-          <div className="flex flex-col items-center gap-2">
-            <img 
-              src="/images/new_logo_bahari_investment.jpeg" 
-              alt="Bahari Investment Logo"
-              className="h-16 w-auto object-contain drop-shadow-[0_0_8px_rgba(184,145,70,0.5)]"
-            />
-            <span className="font-serif text-lg font-bold text-[#B89146]">
+        {/* Desktop Navigation */}
+        <div className="hidden md:flex items-center justify-between relative">
+          
+          {/* Branding Text - Top Left Only (No Logo) */}
+          <div className="absolute left-0 top-0">
+            <span className="font-serif text-2xl font-bold text-[#B89146]">
               Bahari Investment
             </span>
           </div>
 
-          {/* Navigation Menu - Below Logo */}
-          <div className="flex items-center gap-8 mt-2">
+          {/* Navigation Menu - Left and Right of Center Logo */}
+          <div className="flex items-center gap-8 mx-auto">
             <a href="#home" className="text-luxury-off-white hover:text-luxury-gold transition-colors font-medium">Home</a>
             <a href="#portfolio" className="text-luxury-off-white hover:text-luxury-gold transition-colors font-medium">Portfolio</a>
+            
+            {/* Large Centered Logo */}
+            <div className="flex flex-col items-center px-8">
+              <img 
+                src="/images/new_logo_bahari_investment.jpeg" 
+                alt="Bahari Investment Logo"
+                className="h-40 w-auto object-contain drop-shadow-[0_0_20px_rgba(184,145,70,0.8)]"
+              />
+            </div>
+
             <a href="#opportunities" className="text-luxury-gold font-bold transition-colors">Investment Opportunities</a>
             <a href="#about" className="text-luxury-off-white hover:text-luxury-gold transition-colors font-medium">About</a>
             <a href="#contact" className="text-luxury-off-white hover:text-luxury-gold transition-colors font-medium">Contact</a>
-            <button className="bg-luxury-gold text-luxury-dark px-6 py-2 rounded-sm font-semibold hover:bg-luxury-gold/90 transition-colors shadow-lg shadow-luxury-gold/20">
-              Invest Now
-            </button>
           </div>
+
+          {/* Invest Now Button - Right */}
+          <button className="bg-luxury-gold text-luxury-dark px-6 py-2 rounded-sm font-semibold hover:bg-luxury-gold/90 transition-colors shadow-lg shadow-luxury-gold/20">
+            Invest Now
+          </button>
         </div>
 
         {/* Mobile Navigation - Logo Left, Menu Button Right */}
