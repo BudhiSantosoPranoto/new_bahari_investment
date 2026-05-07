@@ -36,13 +36,16 @@ function Navbar() {
     >
       <div className="max-w-7xl mx-auto px-6 py-4">
         <div className="flex items-center justify-between">
-          {/* Logo - Left aligned, smaller size with Gold Glow */}
+          {/* Logo - Left aligned, smaller size with Gold Glow and Brand Name */}
           <div className="flex items-center gap-3">
             <img 
               src="/images/new_logo_bahari_investment.jpeg" 
               alt="Bahari Investment Logo"
-              className="h-10 md:h-12 w-auto object-contain drop-shadow-[0_0_8px_rgba(184,145,70,0.5)]"
+              className="h-10 w-auto object-contain drop-shadow-[0_0_8px_rgba(184,145,70,0.5)]"
             />
+            <span className="font-serif text-xl font-bold text-[#B89146] hidden md:block">
+              Bahari Investment
+            </span>
           </div>
 
           {/* Desktop Navigation */}
@@ -226,10 +229,10 @@ function ProjectsSection() {
       <div className="max-w-7xl mx-auto px-6">
         <div className="text-center mb-16">
           <h2 className="font-serif text-4xl md:text-5xl font-bold text-white mb-4">
-            Our Investment Opportunities
+            Investment Opportunities
           </h2>
           <p className="text-luxury-off-white/70 text-lg max-w-2xl mx-auto">
-            Discover premium investment opportunities in Tegal's most prestigious developments
+            Discover premium investment opportunities in Indonesia's most prestigious developments
           </p>
         </div>
 
