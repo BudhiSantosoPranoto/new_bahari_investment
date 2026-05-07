@@ -18,7 +18,7 @@ function Navbar() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
 
   return (
-    <nav className="relative w-full bg-[#121212] border-b border-luxury-gold/20 py-6">
+    <nav className="relative w-full bg-[#121212] border-b border-luxury-gold/20 py-6 z-40">
       <div className="max-w-7xl mx-auto px-6">
         {/* Desktop Navigation */}
         <div className="hidden md:flex items-center justify-between">
@@ -47,7 +47,7 @@ function Navbar() {
           </span>
 
           {/* Mobile Menu Button */}
-          <button 
+          <button
             className="text-luxury-off-white"
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
           >
@@ -91,15 +91,6 @@ function HeroSection() {
 
       {/* Content */}
       <div className="relative z-10 text-center px-6 max-w-5xl mx-auto">
-        {/* LOGO - TEPAT DI ATAS OVER-TITLE */}
-        <div className="flex justify-center mb-6">
-          <img 
-            src="/images/new_logo_bahari_investment.jpeg" 
-            alt="Bahari Investment Logo" 
-            className="h-32 w-auto object-contain"
-          />
-        </div>
-
         {/* Over-title */}
         <p className="text-luxury-gold uppercase tracking-widest text-sm md:text-base mb-4 font-medium">
           Now Accepting International Investors
@@ -203,118 +194,72 @@ function ProjectCard({ project }: { project: Project }) {
   )
 }
 
-function ProjectsSection() {
+export default function App() {
   const [projects, setProjects] = useState<Project[]>([])
-  const [loading, setLoading] = useState(true)
+  const [showLogoModal, setShowLogoModal] = useState(true)
 
   useEffect(() => {
-    fetchProjects().then((data) => {
-      setProjects(data)
-      setLoading(false)
-    })
+    fetchProjects().then(setProjects)
   }, [])
 
-  // Hide section if no data available
-  if (!loading && projects.length === 0) {
-    return null
+  // Tutup modal jika klik di luar area logo
+  const handleModalClick = (e: React.MouseEvent<HTMLDivElement>) => {
+    if (e.target === e.currentTarget) {
+      setShowLogoModal(false)
+    }
   }
 
   return (
-    <section id="opportunities" className="py-24 bg-luxury-dark">
-      <div className="max-w-7xl mx-auto px-6">
-        <div className="text-center mb-16">
-          <h2 className="font-serif text-4xl md:text-5xl font-bold text-white mb-4">
-            Investment Opportunities
-          </h2>
-          <p className="text-luxury-off-white/70 text-lg max-w-2xl mx-auto">
-            Discover premium investment opportunities in Indonesia's most prestigious developments
-          </p>
-        </div>
-
-        {loading ? (
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {[1, 2, 3].map((i) => (
-              <div key={i} className="bg-luxury-dark-light border border-luxury-gold/20 p-8 animate-pulse">
-                <div className="h-8 bg-luxury-gold/20 rounded mb-4"></div>
-                <div className="h-4 bg-luxury-gold/20 rounded w-3/4 mb-2"></div>
-                <div className="h-4 bg-luxury-gold/20 rounded w-1/2"></div>
-              </div>
-            ))}
+    <div className="min-h-screen bg-[#0F0F0F] text-white font-sans selection:bg-[#B89146] selection:text-white">
+      {/* LOGO MODAL OVERLAY - Melayang di awal, 4x lebih besar */}
+      {showLogoModal && (
+        <div 
+          className="fixed inset-0 z-[9999] flex items-center justify-center bg-black/95 backdrop-blur-md"
+          onClick={handleModalClick}
+        >
+          <div className="text-center p-8 animate-fade-in">
+            <img 
+              src="/images/new_logo_bahari_investment.jpeg" 
+              alt="Bahari Investment" 
+              className="h-80 w-auto object-contain mx-auto drop-shadow-[0_0_50px_rgba(184,145,70,0.8)]"
+            />
+            <p className="font-serif text-3xl text-[#B89146] mt-8 tracking-widest uppercase font-bold">
+              Bahari Investment
+            </p>
           </div>
-        ) : (
-          <>
+        </div>
+      )}
+
+      <Navbar />
+      <HeroSection />
+      
+      {/* Investment Opportunities Section */}
+      {projects.length > 0 && (
+        <section id="opportunities" className="py-24 px-6 bg-[#0F0F0F]">
+          <div className="max-w-7xl mx-auto">
+            <div className="text-center mb-16">
+              <h2 className="font-serif text-4xl md:text-5xl font-bold text-white mb-4">
+                Investment Opportunities
+              </h2>
+              <p className="text-luxury-off-white/70 text-lg max-w-2xl mx-auto">
+                Discover premium investment opportunities in Indonesia's most prestigious developments.
+              </p>
+            </div>
+
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
               {projects.map((project) => (
                 <ProjectCard key={project.id} project={project} />
               ))}
             </div>
+
             <div className="text-center mt-12">
-              <button className="border border-luxury-gold text-luxury-gold px-8 py-3 rounded-none font-medium hover:bg-luxury-gold hover:text-luxury-dark transition-all duration-300">
+              <button className="border border-luxury-gold text-luxury-gold px-8 py-3 rounded-sm font-medium hover:bg-luxury-gold hover:text-luxury-dark transition-all">
                 View All Projects
               </button>
             </div>
-          </>
-        )}
-      </div>
-    </section>
-  )
-}
-
-function Footer() {
-  return (
-    <footer id="contact" className="bg-luxury-dark-light border-t border-luxury-gold/20 py-12">
-      <div className="max-w-7xl mx-auto px-6">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
-          <div>
-            <div className="flex items-center gap-2 mb-4">
-              <Building2 className="w-6 h-6 text-luxury-gold" />
-              <span className="font-serif text-lg font-semibold text-white">Bahari Investment</span>
-            </div>
-            <p className="text-luxury-off-white/60">
-              Premium real estate investment opportunities in Indonesia's most promising cities.
-            </p>
           </div>
-          
-          <div>
-            <h4 className="font-serif text-lg font-semibold text-white mb-4">Quick Links</h4>
-            <ul className="space-y-2">
-              <li><a href="#home" className="text-luxury-off-white/60 hover:text-luxury-gold transition-colors">Home</a></li>
-              <li><a href="#projects" className="text-luxury-off-white/60 hover:text-luxury-gold transition-colors">Projects</a></li>
-              <li><a href="#about" className="text-luxury-off-white/60 hover:text-luxury-gold transition-colors">About Us</a></li>
-            </ul>
-          </div>
-          
-          <div>
-            <h4 className="font-serif text-lg font-semibold text-white mb-4">Contact</h4>
-            <ul className="space-y-2 text-luxury-off-white/60">
-              <li>Tegal, Central Java</li>
-              <li>info@bahariinvestment.com</li>
-              <li>+62 812 3456 7890</li>
-            </ul>
-          </div>
-        </div>
-        
-        <div className="border-t border-luxury-gold/20 pt-8 text-center">
-          <p className="text-luxury-off-white/40">
-            © {new Date().getFullYear()} Bahari Investment. All rights reserved.
-          </p>
-        </div>
-      </div>
-    </footer>
-  )
-}
-
-function App() {
-  return (
-    <div className="min-h-screen bg-luxury-dark">
-      <Navbar />
-      <main>
-        <HeroSection />
-        <ProjectsSection />
-      </main>
-      <Footer />
+        </section>
+      )}
     </div>
   )
 }
-
-export default App
